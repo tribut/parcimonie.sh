@@ -110,7 +110,7 @@ tor_gnupg() {
 	echo "server = $torAddress" > "$torsocksConfig"
 	echo "server_port = $torPort" >> "$torsocksConfig"
 	echo "server_type = 5" >> "$torsocksConfig"
-	TORSOCKS_CONF_FILE="$torsocksConfig" TSOCKS_USERNAME="parcimonie-$(getRandom)" TSOCKS_PASSWORD="parcimonie-$(getRandom)" "$torsocksBinary" "${gnupgExec[@]}" "$@"
+	TORSOCKS_CONF_FILE="$torsocksConfig" TORSOCKS_USERNAME="parcimonie-$(getRandom)" TORSOCKS_PASSWORD="parcimonie-$(getRandom)" "$torsocksBinary" "${gnupgExec[@]}" "$@"
 	returnCode="$?"
 	rm -f "$torsocksConfig"
 	return "$returnCode"
